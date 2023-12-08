@@ -1,0 +1,54 @@
+{% load static %}
+<!-- =========================
+        Header
+    =========================== -->
+<header id="header" class="header header-transparent">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="{% static 'images/logo/logo_light.png' %}" class="logo-light" alt="logo">
+                <img src="{% static 'images/logo/logo_light.png' %}" class="logo-dark" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button">
+                <span class="menu-lines"><span></span></span>
+            </button>
+            <div class="header__top-right d-none d-lg-block">
+                <ul class="list-unstyled d-flex justify-content-end align-items-center">
+                    <li><i class="icon-phone"></i><span>+55 654 541 17</span></li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle width-auto" id="langDrobdown" data-toggle="dropdown">
+                                <i class="icon-map"></i><span>En</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="langDrobdown">
+                                <a class="dropdown-item" href="#">Spain</a>
+                                <a class="dropdown-item" href="#">France</a>
+                            </div>
+                        </div> 
+                    </li>
+                    <li><a href="request-quote.html" class="btn btn__white"><i class="icon-list"></i><span>Request A
+                                Quote</span></a></li>
+                </ul>
+            </div><!-- /.header-top-right -->
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav__item with-dropdown">
+                        <a href="index.html" class="dropdown-toggle nav__item-link active">Home</a>
+                    </li><!-- /.nav-item -->
+
+                    <li class="nav__item with-dropdown">
+                        <a href="" class="nav__item-link">About</a>
+                    </li><!-- /.nav-item -->
+                    <li class="nav__item">
+                        <a href="contacs.html" class="nav__item-link">Contact Us</a>
+                    </li><!-- /.nav-item -->
+                </ul><!-- /.navbar-nav -->
+            </div><!-- /.navbar-collapse -->
+            <div class="navbar-modules">
+                <div class="modules__wrapper d-flex align-items-center">
+                    <a href="#" class="module__btn module__btn-search"><i class="fa fa-search"></i></a>
+                </div><!-- /.modules-wrapper -->
+            </div><!-- /.navbar-modules -->
+        </div><!-- /.container -->
+    </nav><!-- /.navabr -->
+</header><!-- /.Header -->

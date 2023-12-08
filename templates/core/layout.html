@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Logisti ">
+  <link href="{% static 'images/favicon/favicon.ico' %}" rel="icon">
+  <title>Logisti </title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:400,700%7cWork+Sans:400,600,700&display=swap">
+  <link rel="stylesheet" href="{% static 'css/libraries.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+
+</head>
+
+<body>
+  <div class="preloader">
+    <div class="loading"><span></span><span></span><span></span><span></span></div>
+  </div><!-- /.preloader -->
+  <div class="wrapper">
+    {% include 'core/inc/header.html' %}
+    {% block content %}{% endblock content %}
+
+    <!-- footer -->
+    {% include 'core/inc/footer.html' %}
+    <!-- /footer -->
+
+    <button id="scrollTopBtn"><i class="fa fa-long-arrow-up"></i></button>
+
+    <div class="module__search-container">
+      <i class="fa fa-times close-search"></i>
+      <form class="module__search-form">
+        <input type="text" class="search__input" placeholder="Search Here">
+        <button class="module__search-btn"><i class="fa fa-search"></i></button>
+      </form>
+    </div><!-- /.module-search-container -->
+
+  </div><!-- /.wrapper -->
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/plugins.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
