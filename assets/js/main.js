@@ -1,5 +1,5 @@
 /*--------------------------
-    Project Name: Logisti
+    Project Name: Eudiplomaticservice
     Version: 1.2
     Author: 7oorof
     Devloped by: Ahmed Abdallah (a.abdallah999@gmail.com)
