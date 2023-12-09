@@ -34,14 +34,14 @@
             <div class="collapse navbar-collapse" id="mainNavigation">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav__item with-dropdown">
-                        <a href="index.html" class="dropdown-toggle nav__item-link active">Home</a>
+                        <a href="{% url 'core:index' %}" class="dropdown-toggle nav__item-link active">Home</a>
                     </li><!-- /.nav-item -->
 
                     <li class="nav__item with-dropdown">
-                        <a href="" class="nav__item-link">About</a>
+                        <a href="{% url 'core:about' %}" class="nav__item-link">About</a>
                     </li><!-- /.nav-item -->
                     <li class="nav__item">
-                        <a href="contacs.html" class="nav__item-link">Contact Us</a>
+                        <a href="{% url 'core:contact_us' %}" class="nav__item-link">Contact Us</a>
                     </li><!-- /.nav-item -->
                 </ul><!-- /.navbar-nav -->
             </div><!-- /.navbar-collapse -->

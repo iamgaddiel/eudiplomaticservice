@@ -25,8 +25,13 @@
     <div class="loading"><span></span><span></span><span></span><span></span></div>
   </div><!-- /.preloader -->
   <div class="wrapper">
+    <!-- header -->
     {% include 'core/inc/header.html' %}
+    <!-- /header -->
+    
+    <!-- body -->
     {% block content %}{% endblock content %}
+    <!-- /body -->
 
     <!-- footer -->
     {% include 'core/inc/footer.html' %}
