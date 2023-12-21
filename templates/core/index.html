@@ -68,28 +68,110 @@
           </div><!-- /.container -->
         </div><!-- /.slide-item -->
       </div><!-- /.carousel -->
-      <div class="request__form d-none d-lg-block">
-        <div class="request__form-header d-flex align-items-center">
-          <i class="icon-box"></i>
-          <h4 class="request__form-title">Track & Trace</h4>
-        </div><!-- /.request-form-header -->
-        <div class="request__form-body">
-          <p class="mb-30">Real-time, detailed progress as your shipment speeds through the network</p>
-          <div class="form-group form-group-select">
-            <select class="form-control">
-              <option>Shipment Type:</option>
-              <option>Shipment Type: 1</option>
-              <option>Shipment Type: 2</option>
-            </select>
-          </div>
-          <div class="form-group mb-5">
-            <input type="text" class="form-control" placeholder="Tracking Number:">
-          </div>
-          <small class="d-block mb-30">* Enter up to 25 tracking numbers, one per line.</small>
-          <button class="btn btn__primary btn__hover3">Track Now!</button>
-        </div><!-- /.request-form-body -->
-      </div><!-- /.request-form -->
     </section><!-- /.slider -->
+
+
+    <!-- ========================
+        Track Package Tabs
+    =========================== -->
+    <section id="requestQuoteTabs" class="request-quote request-quote-tabs pt-0 bg-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="request__form">
+              <nav class="nav nav-tabs">
+                <a class="nav__link active" data-toggle="tab" href="#track">
+                  <div class="request__form-header d-flex align-items-center">
+                    <i class="icon-worldwide"></i>
+                    <h4 class="request__form-title">Track Package</h4>
+                  </div><!-- /.request-form-header -->
+                </a>
+              </nav>
+              <div class="tab-content">
+                <div class="tab-pane active" id="track">
+                  <div class="request__form-body">
+                    <form action="{% url 'core:track_package' %}" method="post">
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-8">
+                          <div class="row">
+  
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                              <div class="form-group">
+                                <label>Shipment Type</label>
+                                <div class="form-group form-group-select">
+                                  <select class="form-control" name="shipment_medium" required>
+                                    <option>Flight</option>
+                                    <option>Sea</option>
+                                    <option>Road</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div><!-- /.col-lg-12 -->
+  
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                              <div class="form-group">
+                                <label>Tracking Number</label>
+                                <div class="form-group">
+                                  <input type="text" required class="form-control" name="tracking_id"
+                                    placeholder="You can enter up to a maximum of 10 airway bill numbers for tracking."></input>
+                                </div>
+                              </div>
+                            </div><!-- /.col-lg-12 -->
+                            <div class="col-sm-12 col-md-12 col-lg-12 d-flex flex-wrap">
+                              <div class="form-group input-radio">
+                                <label class="label-radio">DHL
+                                  <input type="radio" name="carrier" value="DHL" checked>
+                                  <span class="radio-indicator"></span>
+                                </label>
+                              </div>
+                              <div class="form-group input-radio">
+                                <label class="label-radio">FedEx
+                                  <input type="radio" name="carrier" value="FedEx">
+                                  <span class="radio-indicator"></span>
+                                </label>
+                              </div>
+                              <div class="form-group input-radio">
+                                <label class="label-radio">UPS
+                                  <input type="radio" name="carrier" value="UPS">
+                                  <span class="radio-indicator"></span>
+                                </label>
+                              </div>
+                              <div class="form-group input-radio">
+                                <label class="label-radio">EDS
+                                  <input type="radio" name="carrier" value="EDS">
+                                  <span class="radio-indicator"></span>
+                                </label>
+                              </div>
+                            </div><!-- /.col-lg-12 -->
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                              <button class="btn btn__secondary btn__block">Track Package</button>
+                            </div><!-- /.col-lg-12 -->
+                          </div>
+                        </div><!-- /.col-lg-8 -->
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                          <div class="widget widget-help bg-theme">
+                            <div class="widget__content">
+                              <h5>How Can <br> We Help You!</h5>
+                              <p>We understand the importance approaching each work integrally and believe in the power of
+                                simple
+                                and easy communication.</p>
+                              <a href="#" class="btn btn__secondary btn__hover2"><i class="fa fa-envelope"></i>Contact
+                                Us</a>
+                            </div><!-- /.widget-download -->
+                          </div><!-- /.widget-help -->
+                        </div><!-- /.col-lg-4 -->
+                      </div><!-- /.row -->
+                    </form><!-- /. form -->
+                  </div><!-- /.request-form-body -->
+                </div><!-- /.tab -->
+              </div><!-- /.tab-content -->
+            </div><!-- /.request-form -->
+          </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.Request Quote Tabs -->
+
 
     <!-- ========================
         Services layout 2

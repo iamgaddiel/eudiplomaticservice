@@ -1,0 +1,31 @@
+{% extends 'custom_admin/base_layout.html' %}
+{% block base_content %}
+<body>
+    <div class="app">
+        <div class="layout">
+            <div class="container">
+                <div class="row full-height align-items-center">
+                    <div class="col-12">
+                        <div class="text-center p-t-50">
+                            <h2 class="font-weight-light font-size-30">You're Out!</h2>
+                            <p class="lead">Log back in to continue</p>
+                            <a href="{% url 'custom_admin:login' %}" class="btn btn-gradient-success btn-lg m-t-30">Login</a>
+                        </div>
+                    </div>
+                    <div class="col-12 align-self-end ">
+                        <div class="text-center p-b-20 font-size-13">
+                            <span>Copyright © 2018 <b class="text-dark">Theme_Nate</b>. All rights reserved.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/vendor.js"></script>
+
+    <script src="assets/js/app.min.js"></script>
+
+    <!-- page js -->
+    
+{% endblock %}

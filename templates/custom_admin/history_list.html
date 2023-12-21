@@ -1,0 +1,60 @@
+{% extends 'custom_admin/layout.html' %}
+
+
+{% block content %}
+<div class="page-header">
+    <h2 class="header-title">Packages</h2>
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a href="{% url 'custom_admin:dashboard' %}" class="breadcrumb-item"><i
+                    class="ti-home p-r-5"></i>Dashboard</a>
+            <span class="breadcrumb-item active">History</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card-header border bottom d-flex align-items-center justify-content-between">
+    <h4 class="card-title">Tracking History</h4>
+    <a href="{% url 'custom_admin:history_create' %}">
+        <button class="btn btn-primary">New</button>
+    </a>
+</div>
+<div class="table-overflow">
+    <table class="table table-xl border">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Status</th>
+                <th scope="col">Location</th>
+                <th class="text-center" scope="col">Date</th>
+                <th class="text-center" scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+            <tr>
+                <td>
+                    <div class="list-media">
+                        {{ object.package.name }}
+                    </div>
+                </td>
+                {% if object.status == 'Pending' %}
+                <td><span class="badge badge-pill badge-warning">{{ object.status }}</span></td>
+                {% elif object.status == 'Pre-Transit' %}
+                <td><span class="badge badge-pill badge-warning">{{ object.status }}</span></td>
+                {% elif object.status == 'In transit' %}
+                <td><span class="badge badge-pill badge-primary">{{ object.status }}</span></td>
+                {% elif object.status == 'Out for delivery' %}
+                <td><span class="badge badge-pill badge-primary">{{ object.status }}</span></td>
+                {% elif object.status == 'Delivered' %}
+                <td><span class="badge badge-pill badge-success">{{ object.status }}</span></td>
+                {% endif %}
+                <td>{{ object.location }}</td>
+                <td>{{ object.date }}</td>
+                <td>{{ object.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

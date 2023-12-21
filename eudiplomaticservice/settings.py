@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'eudiplomaticservice.pythonanywhere.com',
-    '127.0.0.1'
+    'localhost',
+    '127.0.0.1',
 ]
 
 
@@ -41,7 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'custom_admin'
+    'custom_admin',
+
+    # 3rd party
+    # 'crispy_forms',
+    # 'crispy_bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -124,10 +129,23 @@ USE_TZ = True
 
 STATIC_URL = 'assets/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'assets'
+    BASE_DIR / 'core/assets/core/',
+    BASE_DIR / 'custom_admin/assets/'
 ]
+# STATICFILES
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+#
+# CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+# AUTHENTICATION
+LOGIN_URL = 'custom_admin:login'
+LOGOUT_URL = 'custom_admin:logout'
+LOGIN_REDIRECT_URL = 'custom_admin:dashboard'
+LOGOUT_REDIRECT_URL = 'custom_admin:login'

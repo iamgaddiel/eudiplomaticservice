@@ -1,0 +1,52 @@
+{% extends 'custom_admin/base_layout.html' %}
+{% load static %}
+
+{% block base_content %}
+<body>
+    <div class="app header-info-gradient side-nav-dark">
+        <div class="layout">
+            <!-- Header START -->
+            {% include 'custom_admin/inc/header.html' %}
+            <!-- Header END -->
+
+            <!-- Left SideNav Start -->
+            {% include 'custom_admin/inc/left_sidenav.html' %}
+            <!-- Left SideNav End -->
+
+
+            <!-- Page Container START -->
+            <div class="page-container">
+                <!-- Quick View START -->
+                {% include 'custom_admin/inc/quick_view.html' %}
+                <!-- Quick View END -->
+
+                <div class="main-content">
+                    <div class="container-fluid">
+                    {% block content %}{% endblock content %}
+                    </div>
+                </div>
+
+                <!-- Footer START -->
+                {% include 'custom_admin/inc/footerbar.html' %}
+                <!-- Footer END -->
+
+            </div>
+            <!-- Page Container END -->
+
+        </div>
+    </div>
+
+    <!-- Start js -->
+    <script src="{% static 'js/vendor.js' %}"></script>
+
+    <script src="{% static 'js/app.min.js' %}"></script>
+
+    <!-- page js -->
+    <script src="{% static 'vendor/chart.js/dist/Chart.min.js' %}"></script>
+    <script src="{% static 'vendor/jvectormap-master/jquery-jvectormap-2.0.3.min.js' %}"></script>
+    <script src="{% static 'js/maps/vector-map-lib/jquery-jvectormap-world-mill.js' %}"></script>
+    <script src="{% static 'js/dashboard/saas.js' %}"></script>
+    <!-- End js -->
+</body>
+{% endblock base_content %}
+

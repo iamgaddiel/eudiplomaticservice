@@ -1,0 +1,118 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<!-- ========================
+    page title 
+    =========================== -->
+<section id="page-title" class="page-title bg-overlay bg-parallax">
+    <div class="bg-img"><img src="{% static 'images/page-titles/4.jpg' %}" alt="background"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <!-- <p class="text-light"></p> -->
+                <h1 class="pagetitle__heading">Freight Details</h1>
+            </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.page-title -->
+
+<div class="container">
+    {% if package_history.count > 0 %}
+    <div class="table-overflow my-5">
+        <h2>Package Details</h2>
+        <div class="row">
+            <div class="col-md-6 border-bottom">
+                <p class="m-0">Title</p>
+                <h6>{{ package.name }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">Tracking ID</p>
+                <h6>{{ package.tracking_id }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">Carrier</p>
+                <h6>{{ package.carrier }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">Address</p>
+                <h6>{{ package.address }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">State</p>
+                <h6>{{ package.state }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">weight</p>
+                <h6>{{ package.weight }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">length</p>
+                <h6>{{ package.length }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">width</p>
+                <h6>{{ package.width }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">height</p>
+                <h6>{{ package.height }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">quantity</p>
+                <h6>{{ package.quantity }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">freight_cost</p>
+                <h6>{{ package.freight_cost }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">Freight Medium</p>
+                <h6>{{ package.shipment_medium }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">Pickup Date</p>
+                <h6>{{ package.pickup_date }}</h6>
+            </div>
+            <div class="col-md-6 border-bottom">
+                <p class="m-0 text-capitalize">Pickup Time </p>
+                <h6>{{ package.pickup_time }}</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-5">
+        <h2>History</h2>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Location</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in package_history %}
+                <tr scope="row">
+                    <td>{{ object.location }}</td>
+                    <td>{{ object.status }}</td>
+                    <td>{{ object.shipment_medium }}</td>
+                    <td>{{ object.date }}</td>
+                    <td>{{ object.pickup_date }} {{ object.pickup_time }}</td>
+                </tr>
+                {% empty %}
+                <p class="text-muted">Nothing to see here</p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted">Nothing to see here</p>
+    {% endif %}
+</div>
+{% endblock %}

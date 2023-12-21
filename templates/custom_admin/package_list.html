@@ -1,0 +1,88 @@
+{% extends 'custom_admin/layout.html' %}
+
+
+{% block content %}
+<div class="page-header">
+    <h2 class="header-title">Packages</h2>
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a href="{% url 'custom_admin:dashboard' %}" class="breadcrumb-item"><i class="ti-home p-r-5"></i>Dashboard</a>
+            <span class="breadcrumb-item active">Packages</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card-header border bottom d-flex align-items-center justify-content-between">
+    <h4 class="card-title">All Packages</h4>
+    <a href="{% url 'custom_admin:package_create' %}">
+        <button class="btn btn-primary">New Package</button>
+    </a>
+</div>
+<div class="table-overflow">
+    <table class="table table-xl border">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Tracking ID</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Medium</th>
+            <th scope="col">Origin</th>
+            <th scope="col">Destination</th>
+            <th class="text-center" scope="col">Pickup</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+            <tr>
+                <td>
+                    <div class="list-media">
+                        {{ object.name }}
+                    </div>
+                </td>
+                <td>{{ object.tracking_id }}</td>
+                <td>{{ object.freight_cost }}</td>
+                <td>{{ object.shipment_medium }}</td>
+                <td>{{ object.origin }}</td>
+                <td>{{ object.destination }}</td>
+                <td>{{ object.pickup_date }} {{ object.pickup_time }}</td>
+                <td>
+                    <a href="{% url 'custom_admin:package_detail' object.pk %}">
+                        <button class="btn btn-primary">View</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'custom_admin:history_list' object.pk %}">
+                        <button class="btn btn-warning">Track</button>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <p class="text-muted">Nothing to see here</p>
+            {% endfor %}
+            <!-- <td><span class="badge badge-pill badge-warning">Expired</span></td> -->
+        <!-- <tr>
+            <td>
+                <div class="list-media">
+                    <div class="list-item">
+                        <div class="media-img">
+                            <img class="rounded" src="assets/images/avatars/thumb-15.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <span class="title">Notepen</span>
+                            <span class="sub-title">Office</span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>26,765</td>
+            <td>15-2-2018</td>
+            <td>$ 10,299</td>
+            <td><span class="badge badge-pill badge-gradient-success">Actived</span></td>
+            <td class="text-center"><a href="" class="text-gray font-size-22"><i
+                    class="mdi mdi-file-outline"></i></a></td>
+        </tr> -->
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+

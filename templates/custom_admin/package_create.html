@@ -1,0 +1,51 @@
+{% extends 'custom_admin/layout.html' %}
+{% block content %}
+
+<!-- Error Check  -->
+{% if form.errors %}
+<ul class="list-media">
+    {% for error in form.errors %}
+    <div class="alert alert-danger alert-dismissible fade show">
+        <strong>{{ error.message }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="card">
+    <div class="card-header border bottom d-flex align-items-center justify-content-between">
+        <h4 class="card-title">Create New {{ context }}</h4>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a href="{% url 'custom_admin:dashboard' %}" class="breadcrumb-item"><i
+                        class="ti-home p-r-5"></i>Dashboard</a>
+                <span class="breadcrumb-item active">Create {{ context }}</span>
+            </nav>
+        </div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            <div class="form-row">
+                {% for field in form %}
+                <div class="form-group col-md-4">
+                    <label class="control-label">{{ field.label }}</label>
+                    {{ field }}
+                    <small class="text-muted">{{ field.help_text }}</small>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    <div class="text-sm-left">
+                        <button class="btn btn-gradient-success" type="submit">Create Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
