@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'core/assets/core/',
     BASE_DIR / 'custom_admin/assets/'
 ]
-# STATICFILES
+STATIC_ROOT = BASE_DIR / 'static_collections'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
