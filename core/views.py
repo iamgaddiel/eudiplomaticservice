@@ -17,9 +17,22 @@ class ContactUs(TemplateView):
     template_name = 'core/contact.html'
 
 
-class PackageTrackingDetails(TemplateView):
-    # template_name = 
-    pass
+class TermsAndCondition(TemplateView):
+    template_name = 'core/terms_and_condition.html'
+
+
+class PrivacyPolicy(TemplateView):
+    template_name = 'core/privacy.html'
+
+
+def handle_404_request(request, exception):
+    template_name = '404.html'
+    return render(request, template_name=template_name)
+
+
+def handle_500_request(request):
+    template_name = '505.html'
+    return render(request, template_name, status=500)
 
 
 def track_page(request):

@@ -6,3 +6,7 @@ urlpatterns = [
     path('back/admin_/', include('custom_admin.urls')),
     path('', include('core.urls'))
 ]
+
+
+handler404 = 'core.views.handle_404_request'
+# handler500 = 'core.views.handle_500_request' 
