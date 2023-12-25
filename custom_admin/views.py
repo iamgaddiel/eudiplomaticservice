@@ -31,7 +31,12 @@ def logout_view(request):
 class DashboardView(LoginRequiredMixin, ListView):
     model = Package
     template_name = 'custom_admin/dashboard.html'
-    context_object_name = 'packages'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        packages = Package.objects.all()
+        context['packages'] = [] if len(packages) == 0 else packages[:4]
+        return context
 
 
 class CreateShipmentHistory(CreateView):

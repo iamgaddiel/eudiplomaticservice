@@ -19,6 +19,49 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
   <!-- <link rel="manifest" href="/site.webmanifest"> -->
 
+  <!-- Font Face -->
+  <style>
+    @font-face {
+      font-family: icomoon;
+      src: url('{% static "fonts/icomoon.eot?bxx24e" %}');
+      src: url('{% static "fonts/icomoon.eot?bxx24e#iefix" %}') format("embedded-opentype"),
+      url('{% static "fonts/icomoon.ttf?bxx24e" %}') format("truetype"),
+      url('{% static "fonts/icomoon.woff?bxx24e" %}') format("woff"),
+      url('{% static "fonts/icomoon.svg?bxx24e#icomoon" %}') format("svg");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: et-line;
+      src: url('{% static "fonts/et-line.eot" %}');
+      src: url('{% static "fonts/et-lined41d.eot?#iefix" %}') format("embedded-opentype"),
+        url('{% static "fonts/et-line.woff" %}') format("woff"),
+        url('{% static "fonts/et-line.ttf" %}') format("truetype"),
+        url('{% static "fonts/et-line.svg#et-line" %}') format("svg");
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+
+  <!-- Font awesome -->
+  <style>
+    @font-face {
+      font-family: "FontAwesome";
+      src: url("{% static 'fonts/fontawesome-webfont.eot?v=4.7.0' %}");
+      src: url("{% static 'fonts/fontawesome-webfont.eot?#iefix&v=4.7.0' %}") format("embedded-opentype"),
+        url("{% static 'fonts/fontawesome-webfont.woff2?v=4.7.0' %}") format("woff2"),
+        url("{% static 'fonts/fontawesome-webfont.woff?v=4.7.0' %}") format("woff"),
+        url("{% static 'fonts/fontawesome-webfont.ttf?v=4.7.0' %}") format("truetype"),
+        url("{% static 'fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular' %}") format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+
   {% block header_content %}{% endblock header_content %}
 </head>
 

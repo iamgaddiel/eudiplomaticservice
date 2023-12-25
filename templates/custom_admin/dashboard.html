@@ -1,167 +1,54 @@
 {% extends 'custom_admin/layout.html' %}
-{% load static %}
+
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header d-flex align-items-center justify-content-between">
-                    <h4 class="card-title">Recent Order</h4>
-                    <div class="card-toolbar">
-                        <ul>
-                            <li>
-                                <a class="text-gray" href="{% url 'custom_admin:package_list' %}">
-                                   <button class="btn btn-primary">View all</button>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="table-overflow">
-                    <table class="table table-lg">
-                        <thead>
-                            <tr class="bg-gray">
-                                <td class="text-dark text-semibold p-v-10">Title</td>
-                                <td class="text-dark text-semibold p-v-10">Tracking ID</td>
-                                <td class="text-dark text-semibold p-v-10">Amount</td>
-                                <td class="text-dark text-semibold p-v-10">Date</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for pkg in packages %}
-                            <tr>
-                                <td>
-                                    <div class="list-media">
-                                        <div class="list-item">
-                                            <div class="media-img">
-                                                <img src="assets/images/avatars/thumb-1.jpg" alt="">
-                                            </div>
-                                            <div class="info">
-                                                <span class="title p-t-10 text-semibold">Marshall
-                                                    Nichols</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>#33667</td>
-                                <td>08 May 2018</td>
-                                <td> $168.00</td>
-                            </tr>
-                        {% empty %}
-                        <tr>
-                                <td>
-                                    <p>No record found</p>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Product stats</h4>
-                    <div class="card-toolbar">
-                        <ul>
-                            <li>
-                                <a class="text-gray" href="javascript:void(0)">
-                                    <i class="mdi mdi-dots-vertical font-size-20"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="table-overflow">
-                    <table class="table table-lg">
-                        <thead>
-                            <tr class="bg-gray">
-                                <td class="text-dark text-semibold p-v-10">Product</td>
-                                <td class="text-dark text-semibold p-v-10">Prices</td>
-                                <td class="text-dark text-semibold p-v-10">Sales</td>
-                                <td class="text-dark text-semibold p-v-10">Views</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="list-media">
-                                        <div class="list-item">
-                                            <div class="media-img">
-                                                <img src="assets/images/avatars/thumb-24.jpg" alt="">
-                                            </div>
-                                            <div class="info">
-                                                <span class="title p-t-10 text-semibold">Beat Solo 2
-                                                    Headphone</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>$229,90</td>
-                                <td>764</td>
-                                <td>180</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="list-media">
-                                        <div class="list-item">
-                                            <div class="media-img">
-                                                <img src="assets/images/avatars/thumb-25.jpg" alt="">
-                                            </div>
-                                            <div class="info">
-                                                <span class="title p-t-10 text-semibold">Stylish
-                                                    Backpack</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>$482,90</td>
-                                <td>523</td>
-                                <td>1252</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="list-media">
-                                        <div class="list-item">
-                                            <div class="media-img">
-                                                <img src="assets/images/avatars/thumb-26.jpg" alt="">
-                                            </div>
-                                            <div class="info">
-                                                <span class="title p-t-10 text-semibold">Adidas
-                                                    Sneaker</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>$432,90</td>
-                                <td>841</td>
-                                <td>253</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="list-media">
-                                        <div class="list-item">
-                                            <div class="media-img">
-                                                <img class="rounded-0" src="assets/images/avatars/thumb-27.jpg" alt="">
-                                            </div>
-                                            <div class="info">
-                                                <span class="title p-t-10 text-semibold">Play Station 4
-                                                    Slim</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>$333,90</td>
-                                <td>1852</td>
-                                <td>8432</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="page-header d-flex justify-content-between">
+    <h2 class="header-title">Packages</h2>
+    <a href="{% url 'custom_admin:package_list' %}">View All</a>
+</div>
 
-
+<div class="table-overflow">
+    <table class="table table-xl border">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Tracking ID</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Medium</th>
+                <th scope="col">Origin</th>
+                <th scope="col">Destination</th>
+                <th class="text-center" scope="col">Pickup</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in packages %}
+            <tr>
+                <td>
+                    <div class="list-media">
+                        {{ object.name }}
+                    </div>
+                </td>
+                <td>{{ object.tracking_id }}</td>
+                <td>{{ object.freight_cost }}</td>
+                <td>{{ object.shipment_medium }}</td>
+                <td>{{ object.origin }}</td>
+                <td>{{ object.destination }}</td>
+                <td>{{ object.pickup_date }} {{ object.pickup_time }}</td>
+                <td>
+                    <a href="{% url 'custom_admin:package_detail' object.pk %}">
+                        <button class="btn btn-primary">View</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'custom_admin:history_list' object.pk %}">
+                        <button class="btn btn-warning">Track</button>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <p class="text-muted">Nothing to see here</p>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock content %}

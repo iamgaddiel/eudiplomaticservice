@@ -127,10 +127,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'assets/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'core/assets/core/',
-    BASE_DIR / 'custom_admin/assets/'
+    BASE_DIR / 'static/core/',
+    BASE_DIR / 'static/custom/',
 ]
 STATIC_ROOT = BASE_DIR / 'static_collections'
 
