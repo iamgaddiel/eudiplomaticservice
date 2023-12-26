@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     'eudiplomaticservice.pythonanywhere.com',
     'localhost',
     '127.0.0.1',
+    '35.94.119.90'
 ]
 
 
