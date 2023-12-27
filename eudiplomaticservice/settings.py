@@ -30,7 +30,8 @@ ALLOWED_HOSTS = [
     'eudiplomaticservice.com',
     'localhost',
     '127.0.0.1',
-    '35.94.119.90'
+    '35.94.119.90',
+    '54.212.36.242'
 ]
 
 
