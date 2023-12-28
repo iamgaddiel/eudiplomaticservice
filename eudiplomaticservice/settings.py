@@ -153,3 +153,25 @@ LOGIN_URL = 'custom_admin:login'
 LOGOUT_URL = 'custom_admin:logout'
 LOGIN_REDIRECT_URL = 'custom_admin:dashboard'
 LOGOUT_REDIRECT_URL = 'custom_admin:login'
+
+
+# LOGGING
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/django.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
