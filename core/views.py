@@ -44,17 +44,21 @@ def track_page(request):
         tracking_id = request.POST.get('tracking_id')
         shipment_medium = request.POST.get('shipment_medium')
 
-        print(carrier, tracking_id, shipment_medium, '<------')
+        try:
+            package = Package.objects.get(
+                tracking_id=tracking_id,
+                shipment_medium=shipment_medium,
+                carrier=carrier
+            )
 
-        package = Package.objects.get(
-            tracking_id=tracking_id,
-            shipment_medium=shipment_medium,
-            carrier=carrier
-        )
+            package_history = ShipmentHistory.objects.filter(package=package.pk)
 
-        package_history = ShipmentHistory.objects.filter(package=package.pk)
-
-        context['package'] = package
-        context['package_history'] = package_history
+            context['package'] = package
+            context['package_history'] = package_history
+        except (Package.DoesNotExist, ShipmentHistory.DoesNotExist):
+            context = {
+                'error': 'Package not found'
+            }
+            return render(request, template_name=template_name, context=context)
 
     return render(request, template_name=template_name, context=context)
