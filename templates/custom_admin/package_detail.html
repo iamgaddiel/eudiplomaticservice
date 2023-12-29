@@ -43,69 +43,82 @@
                     <div class="col-sm-3">
                         <div class="m-t-80">
                             <div class="text-dark text-uppercase d-inline-block"><b>Tracking ID :</b></div>
-                            <div class="pull-right">{{ object.tracking_id }}</div>
+                            <div class="pull-right">{{ object.tracking_id }}</div> <br>
+                            <div class="text-dark text-uppercase d-inline-block"><b>Medium :</b></div>
+                            <div class="pull-right">{{ object.shipment_medium }}</div> <br>
+                            <div class="text-dark text-uppercase d-inline-block"><b>Carrier :</b></div>
+                            <div class="pull-right">{{ object.carrier }}</div> <br>
+                            <div class="text-dark text-uppercase d-inline-block"><b>Date :</b></div>
+                            <div class="pull-right">{{ object.pickup_date }}</div>
                         </div>
-                        <div class="text-dark text-uppercase d-inline-block"><b>Date :</b></div>
-                        <div class="pull-right">{{ object.pickup_date }}</div>
                     </div>
-                </div>
-                <div class="row m-t-20">
-                    <div class="col-sm-12">
-                        <table class="table table-hover w-100">
-                            <thead class="w-100">
-                                <tr>
-                                    <th></th>
-                                    <th>Title</th>
-                                    <th>Quantity</th>
-                                    <th>Weight</th>
-                                    <th>Height</th>
-                                    <th>Length</th>
-                                    <th>Width</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>{{ object.name }}<td>
-                                    <td>{{ object.quantity }}<td>
-                                    <td>{{ object.height }}<td>
-                                    <td>{{ object.weight }}<td>
-                                    <td>{{ object.length }}<td>
-                                    <td>{{ object.width }}<td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="row m-t-30">
-                            <div class="col-sm-12">
-                                <div class="pull-right text-right">
-                                    <hr>
-                                    <h3><b>Total :</b> ${{ object.freight_cost }}</h3>
+                    <div class="row m-t-20">
+                        <div class="col-sm-12">
+                            <table class="table table-hover w-100">
+                                <thead class="w-100">
+                                    <tr>
+                                        <th></th>
+                                        <th>Title</th>
+                                        <th>Quantity</th>
+                                        <th>Weight</th>
+                                        <th>Height</th>
+                                        <th>Length</th>
+                                        <th>Width</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{{ object.name }}
+                                        <td>
+                                        <td>{{ object.quantity }}
+                                        <td>
+                                        <td>{{ object.height }}
+                                        <td>
+                                        <td>{{ object.weight }}
+                                        <td>
+                                        <td>{{ object.length }}
+                                        <td>
+                                        <td>{{ object.width }}
+                                        <td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row m-t-30">
+                                <div class="col-sm-12">
+                                    <div class="pull-right text-right">
+                                        <hr>
+                                        <h3><b>Total :</b> ${{ object.freight_cost }}</h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-t-30">
-                            <div class="col-sm-12">
-                                <div class="border top bottom p-v-20">
-                                    <p class="text-opacity"><small>In exceptional circumstances, Financial Services can
-                                            provide an urgent manually processed special cheque. Note, however, that
-                                            urgent
-                                            special cheques should be requested only on an emergency basis as manually
-                                            produced cheques involve duplication of effort and considerable staff
-                                            resources.
-                                            Requests need to be supported by a letter explaining the circumstances to
-                                            justify the special cheque payment.</small></p>
+                            <div class="row m-t-30">
+                                <div class="col-sm-12">
+                                    <div class="border top bottom p-v-20">
+                                        <p class="text-opacity"><small>In exceptional circumstances, Financial Services
+                                                can
+                                                provide an urgent manually processed special cheque. Note, however, that
+                                                urgent
+                                                special cheques should be requested only on an emergency basis as
+                                                manually
+                                                produced cheques involve duplication of effort and considerable staff
+                                                resources.
+                                                Requests need to be supported by a letter explaining the circumstances
+                                                to
+                                                justify the special cheque payment.</small></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-v-20">
-                            <div class="col-sm-6">
-                                <img class="img-fluid text-opacity m-t--5" width="100" src="assets/images/logo/logo.png"
-                                    alt="">
-                            </div>
-                            <div class="col-sm-6 text-right">
-                                <small><b>Phone:</b> (123) 456-7890</small>
-                                <br>
-                                <small>support@themenate.com</small>
+                            <div class="row m-v-20">
+                                <div class="col-sm-6">
+                                    <img class="img-fluid text-opacity m-t--5" width="100"
+                                        src="assets/images/logo/logo.png" alt="">
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <small><b>Phone:</b> (123) 456-7890</small>
+                                    <br>
+                                    <small>support@themenate.com</small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -113,5 +126,4 @@
             </div>
         </div>
     </div>
-</div>
-{% endblock content %}
+    {% endblock content %}
